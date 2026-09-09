@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Πρόγραμμα, αποτελέσματα και βαθμολογία του School Sports League.">
+  <meta name="theme-color" content="#123b2d">
+  <title>School Sports League</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="School Sports League – αρχική">
+      <span class="brand-mark" aria-hidden="true">SSL</span>
+      <span class="brand-copy">
+        <span class="brand-title">School Sports League</span>
+        <span class="school-name">ΔΗΜΟΣΙΟ ΩΝΑΣΕΙΟ ΓΕΝΙΚΟ ΛΥΚΕΙΟ ΘΕΣΣΑΛΟΝΙΚΗΣ — ΠΕΡΙΚΛΗΣ ΣΤΕΦΑΝΙΔΗΣ</span>
+      </span>
+    </a>
+    <nav aria-label="Κύρια πλοήγηση">
+      <a href="#standings">Βαθμολογία</a>
+      <a href="#matches">Αγώνες</a>
+      <a href="#rules">Κανονισμοί</a>
+    </nav>
+    <button class="button button-ghost" id="adminOpen" type="button">Διαχείριση</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">ΣΧΟΛΙΚΗ ΠΟΛΥΑΘΛΗΤΙΚΗ ΔΙΟΡΓΑΝΩΣΗ · <span id="seasonLabel">2026–2027</span></p>
+        <h1>Μία ομάδα.<br><span>Πέντε αθλήματα.</span></h1>
+        <p class="lead">Οι ίδιες ομάδες αγωνίζονται σε καλαθοσφαίριση, πετοσφαίριση, χειροσφαίριση, αντιπτέριση και ποδόσφαιρο. Σε κάθε άθλημα κερδίζουν βαθμούς και όλοι οι βαθμοί οδηγούν στην τελική κατάταξη.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#matches">Δες τους αγώνες</a>
+          <a class="button button-light" href="assets/kanonismoi-school-sports-league.pdf" target="_blank" rel="noopener">Κατέβασε τους κανονισμούς</a>
+        </div>
+      </div>
+      <div class="score-card" aria-label="Τρόπος βαθμολόγησης">
+        <div class="score-card-top">
+          <span>Πώς μετράει</span>
+          <span class="live-dot">ΕΝΙΑΙΑ ΚΛΙΜΑΚΑ</span>
+        </div>
+        <div class="score-row"><strong>3</strong><span>βαθμοί για νίκη</span></div>
+        <div class="score-row"><strong>1</strong><span>βαθμός για ισοπαλία*</span></div>
+        <div class="score-row"><strong>0</strong><span>βαθμοί για ήττα</span></div>
+        <div class="placement">
+          <span>Τελική θέση αθλήματος</span>
+          <b>10 · 7 · 5 · 3</b>
+        </div>
+        <small>* Μόνο στην κανονική περίοδο ποδοσφαίρου και χειροσφαίρισης.</small>
+      </div>
+    </section>
+
+    <section class="privacy-strip" aria-label="Προστασία προσωπικών δεδομένων">
+      <span class="privacy-icon" aria-hidden="true">✓</span>
+      <p><strong>Σεβασμός στην ιδιωτικότητα.</strong> Κανένα προσωπικό στοιχείο μαθητή δεν συλλέγεται ή κοινοποιείται στην παρούσα ιστοσελίδα. Εμφανίζονται αποκλειστικά ονόματα ομάδων, πρόγραμμα, αποτελέσματα και ομαδικές βαθμολογίες.</p>
+    </section>
+
+    <section class="section" id="standings">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Η ΚΑΤΑΤΑΞΗ ΤΗΣ ΧΡΟΝΙΑΣ</p>
+          <h2>Συνολική βαθμολογία</h2>
+        </div>
+        <p>Η θέση κάθε ομάδας σε κάθε άθλημα μετατρέπεται σε 10, 7, 5 ή 3 βαθμούς. Η κατάταξη παραμένει προσωρινή όσο υπάρχουν αγωνίσματα σε εξέλιξη.</p>
+      </div>
+      <div class="table-shell">
+        <table>
+          <thead><tr><th>Θέση</th><th>Ομάδα</th><th>Μπάσκετ</th><th>Βόλεϊ</th><th>Χάντμπολ</th><th>Αντιπτέριση</th><th>Ποδόσφαιρο</th><th>Σύνολο</th></tr></thead>
+          <tbody id="overallBody"></tbody>
+        </table>
+      </div>
+
+      <div class="sport-selector" id="sportSelector" role="tablist" aria-label="Επιλογή αθλήματος"></div>
+      <div class="table-shell compact-table">
+        <div class="table-title">
+          <div><p class="eyebrow">ΚΑΤΑΤΑΞΗ ΑΘΛΗΜΑΤΟΣ</p><h3 id="sportTableTitle">Καλαθοσφαίριση</h3></div>
+          <span class="status-badge">3 νίκη · 1 ισοπαλία · 0 ήττα</span>
+        </div>
+        <table>
+          <thead><tr><th>Θέση</th><th>Ομάδα</th><th>Αγ.</th><th>Ν</th><th>Ι</th><th>Η</th><th>Υπέρ</th><th>Κατά</th><th>Διαφ.</th><th>Βαθμοί</th></tr></thead>
+          <tbody id="sportBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="matches">
+      <div class="section-heading">
+        <div><p class="eyebrow">ΠΡΟΓΡΑΜΜΑ ΚΑΙ ΑΠΟΤΕΛΕΣΜΑΤΑ</p><h2>Οι αγώνες</h2></div>
+        <label class="filter-label">Άθλημα
+          <select id="matchFilter" aria-label="Φιλτράρισμα αγώνων ανά άθλημα"></select>
+        </label>
+      </div>
+      <div class="match-list" id="matchList"></div>
+      <div class="empty-state" id="matchEmpty" hidden>Δεν έχουν προστεθεί ακόμη αγώνες.</div>
+    </section>
+
+    <section class="section" id="rules">
+      <div class="section-heading">
+        <div><p class="eyebrow">ΑΠΛΟΙ ΚΑΙ ΚΟΙΝΟΙ ΚΑΝΟΝΕΣ</p><h2>Πώς παίζεται η λίγκα</h2></div>
+        <a class="button button-outline" href="assets/kanonismoi-school-sports-league.pdf" download>Κανονισμοί σε PDF</a>
+      </div>
+      <div class="rules-grid">
+        <article class="rule-card"><span>01</span><h3>Σταθερές ομάδες</h3><p>Οι ίδιες ομάδες παραμένουν μαζί και αγωνίζονται διαδοχικά και στα πέντε αθλήματα.</p></article>
+        <article class="rule-card"><span>02</span><h3>Κοινή βαθμολογία</h3><p>Νίκη 3, ισοπαλία 1 και ήττα 0. Οι επιμέρους πόντοι ή τα γκολ δεν περνούν στη γενική βαθμολογία.</p></article>
+        <article class="rule-card"><span>03</span><h3>Ίση αξία</h3><p>Κάθε άθλημα δίνει 10, 7, 5 και 3 βαθμούς στις τέσσερις ομάδες, ανάλογα με την τελική τους θέση.</p></article>
+        <article class="rule-card"><span>04</span><h3>Συμμετοχή και ασφάλεια</h3><p>Προτεραιότητα έχουν η ενεργή συμμετοχή, το δίκαιο παιχνίδι και η τήρηση των οδηγιών ασφάλειας.</p></article>
+      </div>
+      <div class="download-panel">
+        <div><p class="eyebrow">ΣΥΝΗΜΜΕΝΟ ΑΡΧΕΙΟ</p><h3>Αναλυτικοί κανονισμοί School Sports League</h3><p>Πλήρες πρόγραμμα, βαθμολογία, κανόνες ανά άθλημα, ασφάλεια και πρακτική εφαρμογή.</p></div>
+        <a class="button button-primary" href="assets/kanonismoi-school-sports-league.pdf" target="_blank" rel="noopener">Άνοιγμα PDF</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>School Sports League</strong><span>Παίζουμε μαζί. Μετράμε ως ομάδα.</span></div>
+    <p>Δεν δημοσιεύονται ονόματα, εικόνες ή άλλα προσωπικά στοιχεία μαθητών.</p>
+  </footer>
+
+  <dialog id="adminDialog">
+    <div class="dialog-header">
+      <div><p class="eyebrow">ΑΣΦΑΛΗΣ ONLINE ΔΙΑΧΕΙΡΙΣΗ</p><h2>Ενημέρωση λίγκας</h2></div>
+      <div class="dialog-actions"><button class="button button-ghost" id="logoutButton" type="button">Αποσύνδεση</button><button class="icon-button" id="adminClose" type="button" aria-label="Κλείσιμο">×</button></div>
+    </div>
+    <div class="admin-note success-note"><strong>Online ενημέρωση:</strong> κάθε αλλαγή αποθηκεύεται άμεσα στη βάση και εμφανίζεται σε όλους τους επισκέπτες της ιστοσελίδας.</div>
+
+    <div class="admin-grid">
+      <form class="admin-card" id="teamForm">
+        <h3>Νέα ομάδα</h3>
+        <label>Όνομα ομάδας<input id="teamName" required maxlength="30" placeholder="π.χ. Αετοί"></label>
+        <label>Χρώμα ομάδας<input id="teamColor" type="color" value="#e55c2b"></label>
+        <button class="button button-primary" type="submit">Προσθήκη ομάδας</button>
+        <div class="admin-list" id="teamAdminList"></div>
+      </form>
+
+      <form class="admin-card" id="matchForm">
+        <h3 id="matchFormTitle">Νέος αγώνας</h3>
+        <input id="matchId" type="hidden">
+        <div class="form-row">
+          <label>Άθλημα<select id="matchSport" required></select></label>
+          <label>Κατάσταση<select id="matchStatus"><option value="scheduled">Προγραμματισμένος</option><option value="completed">Ολοκληρωμένος</option></select></label>
+        </div>
+        <div class="form-row">
+          <label>Ημερομηνία<input id="matchDate" type="date" required></label>
+          <label>Ώρα<input id="matchTime" type="time" value="14:15" required></label>
+        </div>
+        <div class="form-row">
+          <label>Ομάδα Α<select id="matchHome" required></select></label>
+          <label>Ομάδα Β<select id="matchAway" required></select></label>
+        </div>
+        <div class="form-row score-inputs">
+          <label>Σκορ Α<input id="homeScore" type="number" min="0" inputmode="numeric"></label>
+          <label>Σκορ Β<input id="awayScore" type="number" min="0" inputmode="numeric"></label>
+        </div>
+        <p class="field-help">Στην αντιπτέριση γράφεις το τελικό 2–0 ή 2–1. Στην πετοσφαίριση γράφεις τα κερδισμένα σετ.</p>
+        <div class="form-actions"><button class="button button-primary" type="submit">Αποθήκευση αγώνα</button><button class="button button-ghost" id="matchCancel" type="button" hidden>Ακύρωση</button></div>
+      </form>
+    </div>
+
+    <div class="admin-matches">
+      <h3>Καταχωρισμένοι αγώνες</h3>
+      <div id="adminMatchList"></div>
+    </div>
+  </dialog>
+
+  <dialog id="loginDialog" class="login-dialog">
+    <form id="loginForm" class="login-card">
+      <button class="icon-button login-close" id="loginClose" type="button" aria-label="Κλείσιμο">×</button>
+      <span class="login-mark" aria-hidden="true">SSL</span>
+      <p class="eyebrow">ΠΡΟΣΒΑΣΗ ΔΙΑΧΕΙΡΙΣΤΗ</p>
+      <h2>Σύνδεση</h2>
+      <p>Η καταχώριση ομάδων, αγώνων και αποτελεσμάτων επιτρέπεται μόνο στον εξουσιοδοτημένο διαχειριστή.</p>
+      <label>Email<input id="loginEmail" type="email" autocomplete="username" required placeholder="admin@example.gr"></label>
+      <label>Κωδικός<input id="loginPassword" type="password" autocomplete="current-password" required></label>
+      <p class="login-error" id="loginError" role="alert"></p>
+      <button class="button button-primary" id="loginButton" type="submit">Σύνδεση</button>
+    </form>
+  </dialog>
+
+  <div class="setup-banner" id="setupBanner" hidden>Η online βάση δεν έχει συνδεθεί ακόμη. Ακολούθησε το αρχείο <code>README.md</code> για την αρχική ρύθμιση.</div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
