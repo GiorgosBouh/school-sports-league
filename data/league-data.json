@@ -1,0 +1,15 @@
+{
+  "season": "2026–2027",
+  "teams": [
+    { "id": "aetoi", "name": "Αετοί", "color": "#e55c2b" },
+    { "id": "kyma", "name": "Κύμα", "color": "#2076b9" },
+    { "id": "palmoi", "name": "Παλμοί", "color": "#7f57b5" },
+    { "id": "spitha", "name": "Σπίθα", "color": "#d4a51e" }
+  ],
+  "matches": [
+    { "id": "m1", "sport": "basketball", "date": "2026-10-06", "time": "14:25", "home": "aetoi", "away": "spitha", "homeScore": 24, "awayScore": 18, "status": "completed" },
+    { "id": "m2", "sport": "basketball", "date": "2026-10-06", "time": "15:05", "home": "kyma", "away": "palmoi", "homeScore": 20, "awayScore": 22, "status": "completed" },
+    { "id": "m3", "sport": "basketball", "date": "2026-10-08", "time": "14:25", "home": "aetoi", "away": "palmoi", "homeScore": null, "awayScore": null, "status": "scheduled" },
+    { "id": "m4", "sport": "basketball", "date": "2026-10-08", "time": "15:05", "home": "spitha", "away": "kyma", "homeScore": null, "awayScore": null, "status": "scheduled" }
+  ]
+}
